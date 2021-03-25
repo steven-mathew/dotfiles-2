@@ -1,0 +1,11 @@
+pyright.createtypestub
+pyright.organizeimports
+python.runLinting
+python.sortImports
+workspace.diffDocument
+pyright.restartserver
+python.enableLinting
+python.setLinter
+python.setInterpreter
+clangd.install
+fzf-preview.Initialized
