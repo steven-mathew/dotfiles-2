@@ -197,7 +197,7 @@ augroup SyntaxSettings
 augroup END
 
 " map Ctrl+n to toggling the NERD Tree
-" map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 " highlight CocFloating guibg=#373A44
 
 lua require'nvim-treesitter.configs'.setup {highlight = {enable = true}}
@@ -222,4 +222,4 @@ lua require('search')
 set termguicolors " this variable must be enabled for colors to be applied properly
 
 " a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
+" highlight NvimTreeFolderIcon guibg=blue
