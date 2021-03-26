@@ -17,59 +17,59 @@ packer.startup(function()
 
   -- FILETYPE PLUGINS
   use 'elixir-editors/vim-elixir'
-  use {
-    'vimwiki/vimwiki',
-    branch = 'dev',
-    config = function()
-      require('wiki')
-    end
-  }
-  use 'michal-h21/vim-zettel'
-  use 'tbabej/taskwiki'
-  use 'saltstack/salt-vim'
+  -- use {
+  --   'vimwiki/vimwiki',
+  --   branch = 'dev',
+  --   config = function()
+  --     require('wiki')
+  --   end
+  -- }
+  -- use 'michal-h21/vim-zettel'
+  -- use 'tbabej/taskwiki'
+  -- use 'saltstack/salt-vim'
   use 'jparise/vim-graphql'
   use 'pangloss/vim-javascript'
-  use 'evanleck/vim-svelte'
-  use 'ledger/vim-ledger'
+  -- use 'evanleck/vim-svelte'
+  -- use 'ledger/vim-ledger'
   -- ===================================================================
 
   -- CORE PLUGINS
-  use 'yuttie/comfortable-motion.vim'
-  use 'jiangmiao/auto-pairs'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-projectionist'
-  use 'tpope/vim-dispatch'
-  use 'tpope/vim-endwise'
-  use 'tpope/vim-speeddating'
-  use 'machakann/vim-highlightedyank'
-  use 'janko/vim-test'
-  use {
-    'christoomey/vim-tmux-navigator',
-    config = function ()
-      vim.g.tmux_navigator_disable_when_zoomed = true
-    end
-  }
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+  -- use 'yuttie/comfortable-motion.vim'
+  -- use 'jiangmiao/auto-pairs'
+  -- use 'tpope/vim-surround'
+  -- use 'tpope/vim-repeat'
+  -- use 'tpope/vim-commentary'
+  -- use 'tpope/vim-projectionist'
+  -- use 'tpope/vim-dispatch'
+  -- use 'tpope/vim-endwise'
+  -- use 'tpope/vim-speeddating'
+  -- use 'machakann/vim-highlightedyank'
+  -- use 'janko/vim-test'
+  -- use {
+  --   'christoomey/vim-tmux-navigator',
+  --   config = function ()
+  --     vim.g.tmux_navigator_disable_when_zoomed = true
+  --   end
+  -- }
+  -- use 'hrsh7th/vim-vsnip'
+  -- use 'hrsh7th/vim-vsnip-integ'
   -- Fixers, completion and navigation
-  use 'neomake/neomake'
-  use {
-    'neovim/nvim-lspconfig',
-    config = function() require('lsp') end,
-  }
-  use 'nvim-lua/completion-nvim'
-  use 'steelsojka/completion-buffers'
-  use {
-    'dense-analysis/ale',
-    config = function()
-      require('formatting')
-    end
-  }
-  use {'liuchengxu/vista.vim', cmd = 'Vista'}
-  use 'lotabout/skim'
-  use 'lotabout/skim.vim'
+  -- use 'neomake/neomake'
+  -- use {
+  --   'neovim/nvim-lspconfig',
+  --   config = function() require('lsp') end,
+  -- }
+  -- use 'nvim-lua/completion-nvim'
+  -- use 'steelsojka/completion-buffers'
+  -- use {
+  --   'dense-analysis/ale',
+  --   config = function()
+  --     require('formatting')
+  --   end
+  -- }
+  -- use {'liuchengxu/vista.vim', cmd = 'Vista'}
+  -- use 'lotabout/skim'
+  -- use 'lotabout/skim.vim'
   -- Status and UI
   use 'kyazdani42/nvim-web-devicons.git'
   use 'kyazdani42/nvim-tree.lua'
@@ -79,7 +79,7 @@ packer.startup(function()
     config = function() require('status-line') end,
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-  use 'glacambre/firenvim'
+  -- use 'glacambre/firenvim'
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
@@ -107,9 +107,9 @@ packer.startup(function()
   use 'kristijanhusak/vim-dadbod-completion'
   use 'tpope/vim-dadbod'
   -- Markdown
-  use {'shime/vim-livedown', ft = {'md', 'vimwiki'}}
-  use {'junegunn/goyo.vim', ft = {'md', 'vimwiki'}}
-  use {'blindFS/vim-taskwarrior', fg = {'md', 'vimwiki'}}
+  -- use {'shime/vim-livedown', ft = {'md', 'vimwiki'}}
+  -- use {'junegunn/goyo.vim', ft = {'md', 'vimwiki'}}
+  -- use {'blindFS/vim-taskwarrior'}
   -- Javascript
   use {'mattn/emmet-vim', ft = {'svelte', 'html', 'elixir', 'javascript'}}
   use {'MaxMEllon/vim-jsx-pretty', ft = 'javascript'}

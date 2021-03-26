@@ -12,7 +12,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'pappasam/coc-jedi'
   " File Explorer"
-  " Plug 'scrooloose/NERDTree'
+  Plug 'scrooloose/NERDTree'
   " Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
   " Intellisense
@@ -49,7 +49,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'ryanoasis/vim-devicons'
   " requires 
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
-  Plug 'kyazdani42/nvim-tree.lua'
+  " Plug 'kyazdani42/nvim-tree.lua'
   "Startify
   Plug 'mhinz/vim-startify'
   "Plug 'dbgx/lldb.nvim'
