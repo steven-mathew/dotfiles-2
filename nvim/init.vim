@@ -98,8 +98,8 @@ set shortmess+=c
 set signcolumn=yes
 
 syntax on
-" highlight Normal guibg=none
-" highlight NonText guibg=none
+highlight Normal guibg=none
+highlight NonText guibg=none
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -172,7 +172,7 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" highlight EndOfBuffer guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
 " Using CocList
 " Show all diagnostics
 "nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -205,7 +205,7 @@ lua require'nvim-treesitter.configs'.setup {highlight = {enable = true}}
 lua require('plugins')
 lua require('tree')
 " lua require('mappings')
-lua require('search')
+" lua require('search')
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "2F3139
@@ -217,6 +217,7 @@ lua require('search')
 "============================
 "
 
+highlight Comment cterm=italic gui=italic
 " NvimTreeOpen and NvimTreeClose are also available if you need them
 
 set termguicolors " this variable must be enabled for colors to be applied properly
