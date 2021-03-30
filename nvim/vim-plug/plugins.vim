@@ -34,13 +34,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'junegunn/gv.vim'   
   " FZF
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+  " Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
-
+  " Plug 'sainnhe/gruvbox-material'
   " Plug 'itchyny/lightline.vim'
   " Plug 'vim-airline/vim-airline'
   " Plug 'vim-airline/vim-airline-themes'
 
+  " Plug 'wadackel/vim-dogrun'
+  " Plug 'sainnhe/everforest'
   Plug 'szw/vim-maximizer'
   "Plug 'voldikss/vim-floaterm'
 
@@ -48,7 +50,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
   " requires 
-  Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  " Plug 'kyazdani42/nvim-web-devicons' " for file icons
   " Plug 'kyazdani42/nvim-tree.lua'
   "Startify
   Plug 'mhinz/vim-startify'
@@ -59,25 +61,26 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   "Plug 'HerringtonDarkholme/yats.vim'
   "Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
   "Plug 'wfxr/minimap.vim'
-  Plug 'ghifarit53/tokyonight-vim'
-  "Plug 'franbach/miramare'
+  " Plug 'ghifarit53/tokyonight-vim'
+  " Plug 'franbach/miramare'
   Plug 'vim-syntastic/syntastic'
 
-  Plug 'kosayoda/nvim-lightbulb'
+  " Plug 'kosayoda/nvim-lightbulb'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'romgrk/doom-one.vim'
   "Plug 'rakr/vim-two-firewatch'
   "Plug 'jssee/vim-cortado'
   Plug 'embark-theme/vim', { 'as': 'embark' }
+  Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
   
-  Plug 'dracula/vim', { 'as': 'dracula' }
-  "Plug 'farfanoide/vim-facebook'
-  "Plug 'ayu-theme/ayu-vim'
+  " Plug 'dracula/vim', { 'as': 'dracula' }
+  " Plug 'farfanoide/vim-facebook'
+  Plug 'ayu-theme/ayu-vim'
   Plug 'honza/vim-snippets'  
 
   Plug 'rust-lang/rust.vim'
-  Plug 'embark-theme/vim', { 'as': 'embark' }
+  " Plug 'embark-theme/vim', { 'as': 'embark' }
 call plug#end()
 
 let g:syntastic_cpp_checkers = ['cpplint']
@@ -93,21 +96,29 @@ let g:syntastic_check_on_wq = 0
 set termguicolors
 syntax on
 
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
- let g:tokyonight_transparent_background = 1
-"colorscheme cortado
-""colorscheme facebook
+" let ayucolor="mirage" " for mirage version of theme
+" colorscheme ayu
+
+colorscheme spaceduck
+
+" let g:tokyonight_style = 'night' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 1
+" colorscheme cortado
+" colorscheme facebook
 "set termguicolors
 "syntax on
 
-colorscheme tokyonight
+" colorscheme everforest
+
+" colorscheme dogrun
+" colorscheme gruvbox-material
 " lightline
 " let g:airline_theme = 'base16'
 
 " let g:lightline = {'colorscheme' : 'embark_solarized'}
 
-let g:airline_theme = "tokyonight"
+" let g:airline_theme = "tokyonight"
 " colorscheme dracula
 " colorscheme horizon
 " colorscheme mountaineer-grey
@@ -118,15 +129,15 @@ let g:airline_theme = "tokyonight"
 "set termguicolors
 
  ""the configuration options should be placed before `colorscheme miramare`
-"let g:miramare_enable_italic = 1
-"let g:miramare_disable_italic_comment = 1
+" let g:miramare_enable_italic = 1
+" let g:miramare_disable_italic_comment = 0
 
-"colorscheme miramare
+" colorscheme miramare
 
 "let g:airline_theme = 'miramare'
 
 
-"colorscheme horizon
+" colorscheme horizon
 " Automatically install missing plugins on startup
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))

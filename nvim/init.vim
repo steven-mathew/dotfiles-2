@@ -20,8 +20,10 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plug-config/minimap.vim
 source $HOME/.config/nvim/plug-config/closetag.vim
 source $HOME/.config/nvim/plug-config/nvimtree.vim
-source $HOME/.config/nvim/colors/embark_solarized.vim
-source $HOME/.config/nvim/themes/themes.vim
+" source $HOME/.config/nvim/colors/embark_solarized.vim
+" source $HOME/.config/nvim/colors/iceburg.vim
+" source $HOME/.config/nvim/colors/twilight.vim
+" source $HOME/.config/nvim/themes/themes.vim
 
 
 "source $HOME/.config/nvim/stausline.vim
@@ -72,7 +74,7 @@ inoremap <expr> <c-k> ("\<C-p>")
  let g:syntastic_python_python_exec = 'python3'
  let g:syntastic_python_checkers = ['python']
 " Trigger a highlight only when pressing f and F.
-let g:qs_highlight_on_keys = ['f', 'F']
+" let g:qs_highlight_on_keys = ['f', 'F']
 "nmap <F8> :NERDTreeToggle<CR>
 " Your .vimrc
 highlight QuickScopePrimary guifg='#8be9fd' gui=underline ctermfg=155 cterm=underline
@@ -202,8 +204,8 @@ map <C-n> :NERDTreeToggle<CR>
 
 lua require'nvim-treesitter.configs'.setup {highlight = {enable = true}}
 " lua require('options')
-lua require('plugins')
-lua require('tree')
+" lua require('plugins')
+" lua require('tree')
 " lua require('mappings')
 " lua require('search')
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -217,7 +219,7 @@ lua require('tree')
 "============================
 "
 
-highlight Comment cterm=italic gui=italic
+" highlight Comment cterm=italic gui=italic
 " NvimTreeOpen and NvimTreeClose are also available if you need them
 
 set termguicolors " this variable must be enabled for colors to be applied properly

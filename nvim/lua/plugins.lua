@@ -16,7 +16,7 @@ packer.startup(function()
   -- ===================================================================
 
   -- FILETYPE PLUGINS
-  use 'elixir-editors/vim-elixir'
+  -- use 'elixir-editors/vim-elixir'
   -- use {
   --   'vimwiki/vimwiki',
   --   branch = 'dev',
@@ -72,13 +72,13 @@ packer.startup(function()
   -- use 'lotabout/skim.vim'
   -- Status and UI
   use 'kyazdani42/nvim-web-devicons.git'
-  use 'kyazdani42/nvim-tree.lua'
-  use {
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
-    config = function() require('status-line') end,
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+  -- use 'kyazdani42/nvim-tree.lua'
+  -- use {
+  --   'glepnir/galaxyline.nvim',
+  --   branch = 'main',
+  --   config = function() require('status-line') end,
+  --   requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  -- }
   -- use 'glacambre/firenvim'
   use {
     'norcalli/nvim-colorizer.lua',
@@ -86,26 +86,26 @@ packer.startup(function()
       require('colorizer').setup()
     end
   }
-  use {
-  'glepnir/galaxyline.nvim',
-    branch = 'main',
-    -- your statusline
-    config = function() require'my_statusline' end,
-    -- some optional icons
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+  -- use {
+  -- 'glepnir/galaxyline.nvim',
+  --   branch = 'main',
+  --   -- your statusline
+  --   config = function() require'my_statusline' end,
+  --   -- some optional icons
+  --   requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  -- }
 
   -- THEMES
-  use {'gruvbox-material/vim', opt = true, as = 'gruvbox-material'}
+  -- use {'gruvbox-material/vim', opt = true, as = 'gruvbox-material'}
   use {'mkarmona/colorsbox', opt = true}
-  use {'embark-theme/vim', opt = true, as = 'embark'}
+  -- use {'embark-theme/vim', opt = true, as = 'embark'}
   -- ===================================================================
 
   -- SUPPORT PLUGINS
   -- These don't have to be loaded up front
-  use 'kristijanhusak/vim-dadbod-ui'
-  use 'kristijanhusak/vim-dadbod-completion'
-  use 'tpope/vim-dadbod'
+  -- use 'kristijanhusak/vim-dadbod-ui'
+  -- use 'kristijanhusak/vim-dadbod-completion'
+  -- use 'tpope/vim-dadbod'
   -- Markdown
   -- use {'shime/vim-livedown', ft = {'md', 'vimwiki'}}
   -- use {'junegunn/goyo.vim', ft = {'md', 'vimwiki'}}
@@ -115,7 +115,7 @@ packer.startup(function()
   use {'MaxMEllon/vim-jsx-pretty', ft = 'javascript'}
   use {'heavenshell/vim-jsdoc', ft = 'javascript'}
   -- Elixir
-  use {'andyl/vim-textobj-elixir', ft = 'elixir'}
+  -- use {'andyl/vim-textobj-elixir', ft = 'elixir'}
 end)
 
 vim.cmd("autocmd BufWritePost plugins.lua PackerCompile")

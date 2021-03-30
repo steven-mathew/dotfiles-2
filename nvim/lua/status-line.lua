@@ -98,8 +98,8 @@ gls.left[1] = {
       return ' 異' .. alias
     end,
     separator = ' ',
-    separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.green, colors.bg,  'bold'}
+    separator_highlight = {'NONE', colors.black},
+    highlight = {colors.green, colors.black,  'bold'}
   }
 }
 
@@ -107,7 +107,7 @@ gls.left[2] = {
   FileSize = {
     provider = 'FileSize',
     condition = buffer_not_empty,
-    highlight = {colors.fg, colors.bg}
+    highlight = {colors.fg, colors.black}
   }
 }
 
@@ -115,7 +115,7 @@ gls.left[3] ={
   FileIcon = {
     provider = 'FileIcon',
     condition = buffer_not_empty,
-    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
+    highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.black},
   }
 }
 
@@ -123,16 +123,16 @@ gls.left[4] = {
   FileName = {
     provider = {'FileName'},
     condition = buffer_not_empty,
-    highlight = {colors.green ,colors.bg,'bold'}
+    highlight = {colors.green ,colors.black,'bold'}
   }
 }
 
 gls.left[5] = {
   LineInfo = {
     provider = 'LineColumn',
-    separator = ' ',
-    separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.astral0, colors.bg},
+    separator = '  ',
+    separator_highlight = {'NONE',colors.black},
+    highlight = {colors.astra10, colors.black},
   },
 }
 
@@ -142,8 +142,8 @@ gls.right[1] = {
   TestResults = {
     provider = testing_results,
     separator = '  ',
-    separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.yellow, colors.bg}
+    separator_highlight = {'NONE',colors.black},
+    highlight = {colors.yellow, colors.black}
   }
 }
 
@@ -151,8 +151,8 @@ gls.right[2] = {
   LanguageServer = {
     provider = active_lsp,
     separator = '  ',
-    separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.green, colors.bg}
+    separator_highlight = {'NONE', colors.black},
+    highlight = {colors.green, colors.black}
   }
 }
 
@@ -161,8 +161,8 @@ gls.right[3] = {
     provider = function() return ' ' end,
     condition = require('galaxyline.provider_vcs').check_git_workspace,
     separator = '  ',
-    separator_highlight = {'NONE',colors.bg},
-    highlight = {colors.purple,colors.bg},
+    separator_highlight = {'NONE',colors.black},
+    highlight = {colors.purple,colors.black},
   }
 }
 
@@ -170,7 +170,7 @@ gls.right[4] = {
   GitBranch = {
     provider = 'GitBranch',
     condition = require('galaxyline.provider_vcs').check_git_workspace,
-    highlight = {colors.purple,colors.bg}
+    highlight = {colors.purple,colors.black}
   }
 }
 
@@ -179,6 +179,6 @@ gls.right[4] = {
 gls.short_line_left[1] = {
   FileName = {
     provider = 'FileName',
-    highlight = {colors.green, colors.bg}
+    highlight = {colors.green, colors.black}
   }
 }
