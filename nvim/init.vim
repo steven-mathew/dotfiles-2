@@ -102,6 +102,7 @@ set signcolumn=yes
 syntax on
 highlight Normal guibg=none
 highlight NonText guibg=none
+highlight LineNr guibg=none 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 

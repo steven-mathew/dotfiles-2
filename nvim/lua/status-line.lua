@@ -24,7 +24,7 @@ local active_lsp = function()
     return '鷺' .. active_client.name
   end
 
-  return '鷺------'
+  return '鷺 steven'
 end
 
 local testing_results = function()
@@ -95,7 +95,7 @@ gls.left[1] = {
       vim.api.nvim_command('hi GalaxyViMode guifg=' .. color)
 
       -- return '   ' .. alias
-      return ' 異' .. alias
+      return ' 異 ' .. alias
     end,
     separator = ' ',
     separator_highlight = {'NONE', colors.black},
@@ -158,7 +158,7 @@ gls.right[2] = {
 
 gls.right[3] = {
   GitIcon = {
-    provider = function() return ' ' end,
+    provider = function() return '  ' end,
     condition = require('galaxyline.provider_vcs').check_git_workspace,
     separator = '  ',
     separator_highlight = {'NONE',colors.black},

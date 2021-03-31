@@ -43,9 +43,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   " Plug 'wadackel/vim-dogrun'
   " Plug 'sainnhe/everforest'
-  Plug 'szw/vim-maximizer'
+  " Plug 'szw/vim-maximizer'
   "Plug 'voldikss/vim-floaterm'
-
+  Plug 'fcpg/vim-farout'
       " Cool Icons
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'ryanoasis/vim-devicons'
@@ -96,10 +96,12 @@ let g:syntastic_check_on_wq = 0
 set termguicolors
 syntax on
 
-" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark" " for mirage version of theme
 " colorscheme ayu
 
-colorscheme spaceduck
+" colorscheme spaceduck
+
+colorscheme spaceduck 
 
 " let g:tokyonight_style = 'night' " available: night, storm
 " let g:tokyonight_enable_italic = 1
