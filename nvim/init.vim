@@ -15,16 +15,7 @@ source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/signify.vim
-source $HOME/.config/nvim/plug-config/vimspector.vim
 source $HOME/.config/nvim/vim-plug/plugins.vim
-source $HOME/.config/nvim/plug-config/minimap.vim
-source $HOME/.config/nvim/plug-config/closetag.vim
-source $HOME/.config/nvim/plug-config/nvimtree.vim
-" source $HOME/.config/nvim/colors/embark_solarized.vim
-" source $HOME/.config/nvim/colors/iceburg.vim
-" source $HOME/.config/nvim/colors/twilight.vim
-" source $HOME/.config/nvim/themes/themes.vim
-
 
 "source $HOME/.config/nvim/stausline.vim
 
@@ -71,8 +62,8 @@ inoremap <expr> <c-k> ("\<C-p>")
 " Trigger a highlight in the appropriate diion when pressing these keys:
 "let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
- let g:syntastic_python_python_exec = 'python3'
- let g:syntastic_python_checkers = ['python']
+ " let g:syntastic_python_python_exec = 'python3'
+ " let g:syntastic_python_checkers = ['python']
 " Trigger a highlight only when pressing f and F.
 " let g:qs_highlight_on_keys = ['f', 'F']
 "nmap <F8> :NERDTreeToggle<CR>
@@ -102,7 +93,7 @@ set signcolumn=yes
 syntax on
 highlight Normal guibg=none
 highlight NonText guibg=none
-highlight LineNr guibg=none 
+" highlight LineNr guibg=none 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -158,72 +149,31 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-"nmap <silent> <TAB> <Plug>(coc-range-select)
-"xmap <silent> <TAB> <Plug>(coc-range-select)
-"xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
-
-" Use `:Format` to format current buffer
-"command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-"command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 highlight EndOfBuffer guibg=NONE ctermbg=NONE
-" Using CocList
-" Show all diagnostics
-"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-"" Manage extensions
-"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-"" Show commands
-"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-"" Find symbol of current document
-"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-"" Search workspace symbols
-"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-"" Do default action for next item.
-"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-"" Do default action for previous item.
-"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-"" Resume latest coc list
-"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-augroup SyntaxSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.ts set filetype=typescript
-augroup END
+" augroup SyntaxSettings
+"     autocmd!
+"     autocmd BufNewFile,BufRead *.ts set filetype=typescript
+" augroup END
 
 " map Ctrl+n to toggling the NERD Tree
 map <C-n> :NERDTreeToggle<CR>
-" highlight CocFloating guibg=#373A44
 
-lua require'nvim-treesitter.configs'.setup {highlight = {enable = true}}
-" lua require('options')
-" lua require('plugins')
-" lua require('tree')
-" lua require('mappings')
-" lua require('search')
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-"2F3139
-"4E5057
-" Close NERD Tree when everything else is closed.
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"
-"
-"============================
-"
+" command! LightlineReload call LightlineReload()
 
-" highlight Comment cterm=italic gui=italic
-" NvimTreeOpen and NvimTreeClose are also available if you need them
+" function! LightlineReload()
+"   call lightline#init()
+"   call lightline#colorscheme()
+"   call lightline#update()
+" endfunction
 
-set termguicolors " this variable must be enabled for colors to be applied properly
+" augroup myResetSyntax
+"   au!
+"   autocmd BufWritePost * call LightlineReload() | doautocmd filetypedetect BufRead "%"
+" augroup END
 
-" a list of groups can be found at `:help nvim_tree_highlight`
-" highlight NvimTreeFolderIcon guibg=blue
+" lua require'nvim-treesitter.configs'.setup {highlight = {enable = true}}
+" let g:airline#extensions#syntastic#enabled = 1

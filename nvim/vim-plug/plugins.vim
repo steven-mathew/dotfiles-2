@@ -38,8 +38,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'airblade/vim-rooter'
   " Plug 'sainnhe/gruvbox-material'
   " Plug 'itchyny/lightline.vim'
-  " Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline'
   " Plug 'vim-airline/vim-airline-themes'
+    " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+
+  Plug 'folke/lsp-trouble.nvim'
 
   " Plug 'wadackel/vim-dogrun'
   " Plug 'sainnhe/everforest'
@@ -63,16 +66,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   "Plug 'wfxr/minimap.vim'
   " Plug 'ghifarit53/tokyonight-vim'
   " Plug 'franbach/miramare'
-  Plug 'vim-syntastic/syntastic'
 
   " Plug 'kosayoda/nvim-lightbulb'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
-  Plug 'romgrk/doom-one.vim'
+  " Plug 'romgrk/doom-one.vim'
   "Plug 'rakr/vim-two-firewatch'
   "Plug 'jssee/vim-cortado'
-  Plug 'embark-theme/vim', { 'as': 'embark' }
-  Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+  " Plug 'embark-theme/vim', { 'as': 'embark' }
+  " Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
   
   " Plug 'dracula/vim', { 'as': 'dracula' }
   " Plug 'farfanoide/vim-facebook'
@@ -83,12 +85,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Plug 'embark-theme/vim', { 'as': 'embark' }
 call plug#end()
 
-let g:syntastic_cpp_checkers = ['cpplint']
-let g:syntastic_c_checkers = ['cpplint']
-let g:syntastic_cpp_cpplint_exec = 'cpplint'
-" The following two lines are optional. Configure it to your liking!
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " vmap +- <plug>NERDCommenterToggle
 " nmap +- <plug>NERDCommenterToggle
@@ -96,12 +92,50 @@ let g:syntastic_check_on_wq = 0
 set termguicolors
 syntax on
 
-" let ayucolor="dark" " for mirage version of theme
-" colorscheme ayu
+set noshowmode
+
+let ayucolor="dark" " for mirage version of theme
+colorscheme ayu
+
+
+lua << EOF
+  require("trouble").setup {
+    height = 10, -- height of the trouble list
+    icons = true, -- use dev-icons for filenames
+    mode = "workspace", -- "workspace" or "document"
+    fold_open = "", -- icon used for open folds
+    fold_closed = "", -- icon used for closed folds
+    action_keys = { -- key mappings for actions in the trouble list
+        close = "q", -- close the list
+        refresh = "r", -- manually refresh
+        jump = "<cr>", -- jump to the diagnostic or open / close folds
+        toggle_mode = "m", -- toggle between "workspace" and "document" mode
+        toggle_preview = "P", -- toggle auto_preview
+        preview = "p", -- preview the diagnostic location
+        close_folds = "zM", -- close all folds
+        cancel = "<esc>", -- cancel the preview and get bak to your last window / buffer / cursor
+        open_folds = "zR", -- open all folds
+        previous = "k", -- preview item
+        next = "j" -- next item
+    },
+    indent_lines = true, -- add an indent guide below the fold icons
+    auto_open = false, -- automatically open the list when you have diagnostics
+    auto_close = false, -- automatically close the list when you have no diagnostics
+    auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back
+    signs = {
+        -- icons / text used for a diagnostic
+        error = "",
+        warning = "",
+        hint = "",
+        information = ""
+    },
+    use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp clientc
+  }
+EOF
 
 " colorscheme spaceduck
 
-colorscheme spaceduck 
+" colorscheme spaceduck 
 
 " let g:tokyonight_style = 'night' " available: night, storm
 " let g:tokyonight_enable_italic = 1
@@ -118,7 +152,7 @@ colorscheme spaceduck
 " lightline
 " let g:airline_theme = 'base16'
 
-" let g:lightline = {'colorscheme' : 'embark_solarized'}
+" let g:lightline = {'colorscheme' : 'ayu'}
 
 " let g:airline_theme = "tokyonight"
 " colorscheme dracula
@@ -136,8 +170,9 @@ colorscheme spaceduck
 
 " colorscheme miramare
 
-"let g:airline_theme = 'miramare'
+let g:airline_theme = 'ayu'
 
+let g:rustfmt_autosave = 1
 
 " colorscheme horizon
 " Automatically install missing plugins on startup

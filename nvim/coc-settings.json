@@ -12,17 +12,13 @@
         "typescriptreact",
         "typescript.tsx"
     ],
-    // python config
     "snippets.ultisnips.directories": [
         "UltiSnips",
         "~/.config/nvim/utils/snips"
     ],
     "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
-    /*"python.jediEnabled": false,*/
-    /*"clangd.path": "/Users/steven/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",*/
     "python.formatting.provider": "autopep8",
     "python.formatting.autopep8Path": "/Users/steven/Library/Python/3.8/bin/autopep8",
-    /*"python.analysis.useLibraryCodeForTypes": true, */
     "python.linting.enabled": false,
     "languageserver": {
         "ccls": {
