@@ -1,0 +1,70 @@
+/*
+CREDIT: https://github.com/Arty2/userstyles + https://github.com/jonhoo/configs/blob/master/gui/.mozilla/firefox/chrome/userChrome.css
+@version      0.2.1
+
+1. Navigate to `%APPDATA%\Mozilla\Firefox\Profiles` (you can copy/paste this) or locate the exact directory by visiting `about:profiles`.
+2. Create a folder named `chrome` then create a file named userChrome.css inside it and paste this code.
+3. If userChrome.css doesn’t seem to work, open `about:config` and set `toolkit.legacyUserProfileCustomizations.stylesheets=true`.
+
+Other references:
+Firefox Support forum - Tabs below the URL bar: https://support.mozilla.org/en-US/kb/forum-response-tabs-below-url-bar
+Custom CSS tweaks for Firefox Quantum: https://github.com/Aris-t2/CustomCSSforFx
+*/
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/*
+tabs to bottom
+source: https://github.com/Arty2/userstyles/blob/master/tabs_to_bottom.userchrome.css
+*/
+
+/* bring the browser window to the top */
+#browser {
+	-moz-box-ordinal-group: 0 !important;
+}
+
+:root[sizemode="normal"] #browser {
+	padding-top: 8px;
+}
+
+/* hide tab toolbar when fullscreen */
+#nav-bar[inFullscreen],
+#TabsToolbar[inFullscreen] {
+	display: none;
+}
+
+/* hide titlebar buttons */
+#TabsToolbar > .titlebar-buttonbox-container {
+	display: none !important;
+}
+
+/* remove gaps in tab bar start and end */
+.titlebar-spacer[type="pre-tabs"] {
+	display: none !important;
+}
+
+#urlbar {
+    top: unset !important;
+    bottom: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+#urlbar-input-container {
+    order: 2;
+}
+
+#urlbar > .urlbarView {
+    order: 1;
+    border-bottom: 1px solid #666;
+}
+
+#urlbar-results {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.titlebar-spacer[type="post-tabs"] {
+	width: 8px !important;
+}
+
