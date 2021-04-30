@@ -33,7 +33,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'tpope/vim-rhubarb'
   Plug 'junegunn/gv.vim'   
   " FZF
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   " Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
   " Plug 'sainnhe/gruvbox-material'
@@ -44,6 +43,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   Plug 'folke/lsp-trouble.nvim'
 
+
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
   " Plug 'wadackel/vim-dogrun'
   " Plug 'sainnhe/everforest'
   " Plug 'szw/vim-maximizer'
@@ -66,7 +69,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   "Plug 'wfxr/minimap.vim'
   " Plug 'ghifarit53/tokyonight-vim'
   " Plug 'franbach/miramare'
-
+  " Telescope
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   " Plug 'kosayoda/nvim-lightbulb'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
@@ -132,8 +138,67 @@ lua << EOF
     use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp clientc
   }
 EOF
+" Find files using Telescope command-line sugar.
+nnoremap <leader>fg <cmd>Telescope find_files<cr>
+nnoremap <leader>rg <cmd>Telescope live_grep<cr>
+nnoremap <leader>rb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" colorscheme spaceduck
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case'
+    },
+    prompt_position = "bottom",
+    prompt_prefix = "> ",
+    selection_caret = "> ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    layout_defaults = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+    },
+    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+    file_ignore_patterns = {},
+    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    shorten_path = true,
+    winblend = 0,
+    width = 0.75,
+    preview_cutoff = 120,
+    results_height = 1,
+    results_width = 0.8,
+    border = {},
+    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    color_devicons = true,
+    use_less = true,
+    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+
+    -- Developer configurations: Not meant for general override
+    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  }
+}
+EOF
+
+
+
+"colorscheme spaceduck
 
 " colorscheme spaceduck 
 
