@@ -42,7 +42,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
   Plug 'folke/lsp-trouble.nvim'
-
+  Plug 'chriskempson/base16-vim'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -100,9 +100,22 @@ syntax on
 
 set noshowmode
 
-let ayucolor="dark" " for mirage version of theme
-colorscheme ayu
+" let ayucolor="dark" " for mirage version of theme
+" colorscheme ayu
 
+" deal with colors
+if !has('gui_running')
+  set t_Co=256
+endif
+if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
+  " screen does not (yet) support truecolor
+  set termguicolors
+endif
+
+let base16colorspace=256
+colorscheme base16-default-dark
+" colorscheme base16-gruvbox-dark-hard
+set background=dark
 
 lua << EOF
   require("trouble").setup {

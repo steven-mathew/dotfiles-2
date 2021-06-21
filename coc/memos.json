@@ -1199,7 +1199,7 @@
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
   },
   "coc-rust-analyzer|global": {
-    "release": "2021-04-26"
+    "release": "2021-05-24"
   },
   "coc-python|/Users/steven/Dokuments/projects/graphs": {
     "INTERPRETERS_CACHE_v3_PipEnvService:af2fad7ed91305500c7f7969d129f9a6": [],
@@ -1324,5 +1324,11 @@
   "coc-python|/Users/steven": {
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],
     "INTERPRETERS_CACHE_v3_PipEnvService": []
+  },
+  "coc-eslint|global": {
+    "eslintAlwaysAllowExecution": false,
+    "eslintLibraries": {
+      "libs": {}
+    }
   }
 }

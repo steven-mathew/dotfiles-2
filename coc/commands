@@ -1,3 +1,7 @@
+eslint.resetLibraryExecution
+eslint.showOutputChannel
+eslint.lintProject
+eslint.executeAutofix
 pyright.createtypestub
 pyright.organizeimports
 python.runLinting

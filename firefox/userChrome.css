@@ -68,3 +68,5 @@ source: https://github.com/Arty2/userstyles/blob/master/tabs_to_bottom.userchrom
 	width: 8px !important;
 }
 
+.nav-tabs li.active>a { border-bottom: 2px solid lightcoral; } 
+.nav-tabs li.active>a:focus { border-bottom: 2px solid lightsteelblue; }
