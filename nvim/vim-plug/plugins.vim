@@ -36,8 +36,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Plug 'junegunn/fzf.vim'
   Plug 'airblade/vim-rooter'
   " Plug 'sainnhe/gruvbox-material'
-  " Plug 'itchyny/lightline.vim'
-  Plug 'vim-airline/vim-airline'
+  Plug 'itchyny/lightline.vim'
   " Plug 'vim-airline/vim-airline-themes'
     " Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
@@ -89,6 +88,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
   Plug 'rust-lang/rust.vim'
   " Plug 'embark-theme/vim', { 'as': 'embark' }
+  " Go
+  Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }  
 call plug#end()
 
 
@@ -97,6 +98,8 @@ call plug#end()
 
 set termguicolors
 syntax on
+
+set formatoptions-=cro
 
 set noshowmode
 
@@ -117,99 +120,30 @@ colorscheme base16-default-dark
 " colorscheme base16-gruvbox-dark-hard
 set background=dark
 
-lua << EOF
-  require("trouble").setup {
-    height = 10, -- height of the trouble list
-    icons = true, -- use dev-icons for filenames
-    mode = "workspace", -- "workspace" or "document"
-    fold_open = "", -- icon used for open folds
-    fold_closed = "", -- icon used for closed folds
-    action_keys = { -- key mappings for actions in the trouble list
-        close = "q", -- close the list
-        refresh = "r", -- manually refresh
-        jump = "<cr>", -- jump to the diagnostic or open / close folds
-        toggle_mode = "m", -- toggle between "workspace" and "document" mode
-        toggle_preview = "P", -- toggle auto_preview
-        preview = "p", -- preview the diagnostic location
-        close_folds = "zM", -- close all folds
-        cancel = "<esc>", -- cancel the preview and get bak to your last window / buffer / cursor
-        open_folds = "zR", -- open all folds
-        previous = "k", -- preview item
-        next = "j" -- next item
-    },
-    indent_lines = true, -- add an indent guide below the fold icons
-    auto_open = false, -- automatically open the list when you have diagnostics
-    auto_close = false, -- automatically close the list when you have no diagnostics
-    auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back
-    signs = {
-        -- icons / text used for a diagnostic
-        error = "",
-        warning = "",
-        hint = "",
-        information = ""
-    },
-    use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp clientc
-  }
-EOF
 " Find files using Telescope command-line sugar.
 nnoremap <leader>fg <cmd>Telescope find_files<cr>
 nnoremap <leader>rg <cmd>Telescope live_grep<cr>
 nnoremap <leader>rb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-lua << EOF
-require('telescope').setup{
-  defaults = {
-    vimgrep_arguments = {
-      'rg',
-      '--color=never',
-      '--no-heading',
-      '--with-filename',
-      '--line-number',
-      '--column',
-      '--smart-case'
-    },
-    prompt_position = "bottom",
-    prompt_prefix = "> ",
-    selection_caret = "> ",
-    entry_prefix = "  ",
-    initial_mode = "insert",
-    selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
-    layout_defaults = {
-      horizontal = {
-        mirror = false,
-      },
-      vertical = {
-        mirror = false,
-      },
-    },
-    file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = {},
-    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
-    shorten_path = true,
-    winblend = 0,
-    width = 0.75,
-    preview_cutoff = 120,
-    results_height = 1,
-    results_width = 0.8,
-    border = {},
-    borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
-    color_devicons = true,
-    use_less = true,
-    set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-
-    -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
-  }
-}
-EOF
 
 
+" Lightline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileencoding', 'filetype' ] ],
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename'
+      \ },
+      \ }
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
 
 "colorscheme spaceduck
 
@@ -247,8 +181,6 @@ EOF
 " let g:miramare_disable_italic_comment = 0
 
 " colorscheme miramare
-
-let g:airline_theme = 'ayu'
 
 let g:rustfmt_autosave = 1
 

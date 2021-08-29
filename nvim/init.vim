@@ -15,7 +15,9 @@ source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/floaterm.vim
 source $HOME/.config/nvim/plug-config/fzf.vim
 source $HOME/.config/nvim/plug-config/signify.vim
+source $HOME/.config/nvim/plug-config/mips.vim
 source $HOME/.config/nvim/vim-plug/plugins.vim
+
 
 "source $HOME/.config/nvim/stausline.vim
 
@@ -177,3 +179,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " lua require'nvim-treesitter.configs'.setup {highlight = {enable = true}}
 " let g:airline#extensions#syntastic#enabled = 1
+"
+"
+
+
